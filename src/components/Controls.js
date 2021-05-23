@@ -38,17 +38,17 @@ class Controls extends Component {
                            </th>
                              <th>
                                <button onClick = {()=>{                                                                     
-                                    let data = this.props.UsersData.filter(function(user, index) {         
-                                        return index !== key;
+                                    let data = this.props.UsersData.filter( (user, index) => {                                          
+                                        return user ? index !== key : null
+                                                                       
                                     });
                                     this.props.dispatch(app.Delete( data ));
                                }}> 
                                 delete 
                                </button>
-                               <button onClick = {()=>{   
-                                //    filter((element, index, array) => { ... } )                                                                  
-                                    let data = this.props.UsersData.filter(function(user, index) {                                                 
-                                        if(index == key){                                            
+                               <button onClick = {()=>{                                   
+                                    let data = this.props.UsersData.filter((user, index) => {
+                                        if(index === key){                                            
                                             return user.interests = [];
                                         }else{
                                             return user;
